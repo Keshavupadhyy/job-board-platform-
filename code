@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Board Platform</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  /* Basic Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Global Styles */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  /* Header Styles */
+  header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  /* Main Content Styles */
+  main {
+    margin-top: 80px; /* Adjusted for fixed header */
+    padding: 20px;
+  }
+
+  /* Job Listings Styles */
+  .job-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .job {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 15px;
+    transition: transform 0.3s ease;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .job:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .job h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .job p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #666;
+  }
+
+  .job button {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .job button:hover {
+    background-color: #27ae60;
+  }
+
+  /* User Account Styles */
+  .user-account {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-account form {
+    max-width: 400px;
+    margin: auto;
+  }
+
+  .user-account input,
+  .user-account textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .user-account button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .user-account button:hover {
+    background-color: #2980b9;
+  }
+
+  /* Messaging Styles */
+  .messages {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .messages form {
+    max-width: 400px;
+    margin: auto;
+  }
+
+  .messages input,
+  .messages textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .messages button {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .messages button:hover {
+    background-color: #c0392b;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Ｒｏｊｇａａｒ.ｃｏｍ</h1>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Job Listings -->
+  <section class="job-listings">
+    <div class="job">
+      <h2>Frontend Developer</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo vitae velit luctus scelerisque.</p>
+      <button onclick="applyJob('Frontend Developer')">Apply</button>
+    </div>
+    <div class="job">
+      <h2>Backend Developer</h2>
+      <p>Integer rhoncus lacinia magna, eget ullamcorper ante consectetur at.</p>
+      <button onclick="applyJob('Backend Developer')">Apply</button>
+    </div>
+    <div class="job">
+      <h2>UI/UX Designer</h2>
+      <p>Vivamus nec justo ac nunc tincidunt laoreet id non elit.</p>
+      <button onclick="applyJob('UI/UX Designer')">Apply</button>
+    </div>
+    <!-- Add more job listings as needed -->
+  </section>
+
+  <!-- User Account -->
+  <section class="user-account">
+    <h2>User Account</h2>
+    <form id="user-form" onsubmit="return false;">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Bio"></textarea>
+      <button onclick="saveUser()">Save</button>
+    </form>
+  </section>
+
+  <!-- Messaging -->
+  <section class="messages">
+    <h2>Messages</h2>
+    <form id="message-form" onsubmit="return false;">
+      <input type="text" placeholder="Recipient" required>
+      <textarea placeholder="Message" required></textarea>
+      <button onclick="sendMessage()">Send</button>
+    </form>
+  </section>
+
+</main>
+
+<script>
+  // Simulated database storage
+  let currentUser = {
+    name: '',
+    email: '',
+    bio: ''
+  };
+
+  // Function to save user information
+  function saveUser() {
+    const name = document.querySelector('#user-form input[type="text"]').value;
+    const email = document.querySelector('#user-form input[type="email"]').value;
+    const bio = document.querySelector('#user-form textarea').value;
+
+    currentUser.name = name;
+    currentUser.email = email;
+    currentUser.bio = bio;
+
+    alert('User information saved.');
+  }
+
+  // Function to simulate job application
+  function applyJob(jobTitle) {
+    alert(`Applied for job: ${jobTitle}`);
+  }
+
+  // Function to simulate sending a message
+  function sendMessage() {
+    const recipient = document.querySelector('#message-form input[type="text"]').value;
+    const message = document.querySelector('#message-form textarea').value;
+
+    alert(`Message sent to ${recipient}: ${message}`);
+  }
+</script>
+
+</body>
+</html>
